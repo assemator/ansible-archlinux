@@ -4,42 +4,21 @@
   pacman:
     name:
       - xorg
+      - xorg-server
       - xorg-xinit
       - i3-wm
       - i3lock
-      - i3status-rs
-      - dmenu
+      - i3status
       - feh
-      - dunst
-      - rofi
-      - compton
     state: present
   register: task_result
   until: task_result is success
   retries: 10
   delay: 2
 
-- name: install i3lock fancy and glitchlock from aur
-  aur:
-    name: "{{ item }}"
-    user: "{{ user.name }}"
-  register: task_result
-  until: task_result is success
-  retries: 10
-  delay: 2
-  with_items:
-    - i3lock-fancy-dualmonitors-git
-    - glitchlock
-
-# Compton does not work with xsetroot
-- name: install hsetroot from aur
-  aur:
-    name: hsetroot
-    user: "{{ user.name }}"
-
-- name: create i3wm configuration directory and util subdirectory
+- name: create i3wm configuration directory
   file:
-    name: /home/{{ user.name }}/.i3/util
+    name: /home/{{ user.name }}/.config/i3
     state: directory
     owner: "{{ user.name }}"
     group: "{{ user.group }}"

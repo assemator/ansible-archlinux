@@ -3,9 +3,9 @@
 # ==================
 ##
 user:
-    name: aaron
+    name: rblanco
     group: users
-    shell: /bin/zsh
+    shell: /bin/bash
 
 ##
 # System configuration
@@ -13,15 +13,15 @@ user:
 # processor type:
 #   Option: "intel" will install microcode updates and configure the bootloader accordingly
 #   Option: "amd" will do the same for amd
-# graphics_card type: 
+# graphics_card type:
 #   Option: "intel" will install microcode updates
 #   Option: "nvidia" will install nouveau because i will NEVER EVER touch those filthy nvidia drivers
 ##
 system:
-    locale: de_CH.UTF-8
-    timezone: Europe/Zurich
-    processor: amd
-    graphics_card: nvidia
+    locale: en_US.UTF-8
+    timezone: Greenwich
+    processor: intel
+    graphics_card: intel
     macspoof: disabled
 
 ##
@@ -47,8 +47,8 @@ ssh:
 ##
 dotfiles:
     installation: "true"
-    url: https://github.com/id101010/LinuxDotFiles.git
-    destination: .dotfiles
+    url: https://github.com/romanblanco/dotfiles.git
+    destination: etc
     rcup_flags: -fx README.md
 
 ##
@@ -58,19 +58,44 @@ dotfiles:
 base_packages:
     - base-devel
     - cronie
-    - openssh
     - rkhunter
-    - zsh
-    - htop
-    - nmap
-    - curl
-    - tmux
-    - git
-    - rsync
+    - bash
     - coreutils
     - dateutils
     - bc
     - strace
     - lsof
     - sysstat
+    - syncthing
+    - go-ipfs
+    - tar
+    - zip
+    - unzip
+    - p7zip
+    - unrar
+    - vlc
+    - neovim
+    - ctags
+    - ruby
+    - htop
+    - git
     - tig
+    - tree
+    - ripgrep
+    - firefox
+    - ntfs-3g
+    - firefox-developer-edition
+    - postgresql
+    - memcached
+    - sqlite
+    - bzip2
+    - libffi
+    - readline
+    - nodejs
+    - patch
+    - libxml2
+    - libxslt
+    - cmake
+    - npm
+    - libsass
+    - byzanz

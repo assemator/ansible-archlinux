@@ -39,7 +39,43 @@
     - firefox
     - firejail
 
-- name: Allow u2f in browsers to mak security tokens work
+- name: Install firefox-developer-edition
+  pacman: name=firefox-developer-edition state=present
+  tags:
+    - firefox
+
+- name: Firejail entry for firefox-developer-edition
+  file: src=/usr/bin/firejail
+        dest=/usr/local/bin/firefox-developer-edition
+        state=link
+
+  tags:
+    - firefox
+    - firejail
+
+- name: Place new application.desktop file for the jailed firefox-developer-edition
+  copy: src=firefox-developer-edition.desktop
+        dest=/usr/share/applications/
+  tags:
+    - firefox
+    - firejail
+
+- name: Verify firefox firejail local profile exists
+  file: path=/etc/firejail/firefox-developer-edition.local state=touch
+  tags:
+    - firefox
+    - firejail
+
+- name: Restrict Firefox access to /etc
+  lineinfile:
+    dest: /etc/firejail/firefox-developer-edition.local
+    regexp: "^private-etc"
+    line: "private-etc firejail,passwd,group,hostname,hosts,nsswitch.conf,resolv.conf,gtk-2.0,gtk-3.0,fonts,mime.types,asound.conf,pulse,localtime"
+  tags:
+    - firefox
+    - firejail
+
+- name: Allow u2f in browsers to make security tokens work
   lineinfile:
     dest: /etc/firejail/firejail.config
     regexp: "^# browser-disable-u2f yes"
