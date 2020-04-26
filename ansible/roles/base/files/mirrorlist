@@ -4,6 +4,6 @@
 ## Generated on 2018-02-01
 ##
 
-### Switzerland
-Server = https://mirror.puzzle.ch/archlinux/$repo/os/$arch
-Server = https://pkg.adfinis-sygroup.ch/archlinux/$repo/os/$arch
+### Germany
+Server = https://mirror.pkgbuild.com/$repo/os/$arch
+Server = https://mirror.23media.com/archlinux/$repo/os/$arch
