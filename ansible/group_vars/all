@@ -3,7 +3,7 @@
 # ==================
 ##
 user:
-    name: rblanco
+    name: assem
     group: users
     shell: /bin/bash
 
@@ -19,7 +19,7 @@ user:
 ##
 system:
     locale: en_US.UTF-8
-    timezone: Greenwich
+    timezone: Africa/Cairo
     processor: intel
     graphics_card: intel
     macspoof: disabled
@@ -37,7 +37,7 @@ bootloader: syslinux
 ##
 ssh:
     port: 22
-    enable_sshd: true
+    enable_sshd: false
 
 ##
 # Dotfile configuration
@@ -57,45 +57,9 @@ dotfiles:
 ##
 base_packages:
     - base-devel
-    - cronie
-    - rkhunter
+    - linux
+    - linux-firmware
     - bash
     - coreutils
     - dateutils
-    - bc
-    - strace
-    - lsof
-    - sysstat
-    - syncthing
-    - go-ipfs
-    - tar
-    - zip
-    - unzip
-    - p7zip
-    - unrar
-    - vlc
-    - neovim
-    - ctags
-    - ruby
-    - htop
-    - git
-    - tig
-    - tree
-    - ripgrep
-    - firefox
     - ntfs-3g
-    - firefox-developer-edition
-    - postgresql
-    - memcached
-    - sqlite
-    - bzip2
-    - libffi
-    - readline
-    - nodejs
-    - patch
-    - libxml2
-    - libxslt
-    - cmake
-    - npm
-    - libsass
-    - byzanz
